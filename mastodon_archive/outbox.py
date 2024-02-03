@@ -13,12 +13,8 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-import os
 import json
-import http.server
-import socketserver
 from progress.bar import Bar
-from urllib.parse import urlparse, parse_qs
 from . import core
 import re
 
