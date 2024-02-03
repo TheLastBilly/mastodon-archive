@@ -30,6 +30,7 @@ from . import mutuals
 from . import login
 from . import fix
 from . import meow
+from . import outbox
 
 def main():
     parser = argparse.ArgumentParser(
@@ -332,6 +333,16 @@ def main():
                                 action="store_true",
                                 help="combine archives in case they are split")
     parser_content.set_defaults(command=meow.meow)
+
+    parser_content = subparsers.add_parser(
+        name='outbox',
+        help='exports your backup on mastodon-backup format')
+    parser_content.add_argument("user",
+                                help='your account, e.g. kensanata@octogon.social')
+    parser_content.add_argument("--combine",
+                                action="store_true",
+                                help="combine archives in case they are split")
+    parser_content.set_defaults(command=outbox.outbox)
 
 
     args = parser.parse_args()
